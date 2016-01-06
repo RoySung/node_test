@@ -1,11 +1,12 @@
 var https = require('https'),
 	fs = require('fs'),
 	qs = require('querystring'),
-    host = "192.168.11.8",
+    host = "10.10.1.11",
     port = 41741,
     path = "/",
     method = 'POST',
-    postData = 'GET_a4bfcb8b148181e51b2c2faae0462c99f7f9a2e8';
+    postData = 'GET_881291ec4df4ef0b4f66f093c603a3a31f4d3e2f';
+
 
 var options = {
 	hostname: host,

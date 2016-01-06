@@ -4,7 +4,7 @@ var server,
     http = require('https'),
     fs = require("fs"),
     qs = require('querystring'),
-    socket = require('socket.io'),
+    os = require( 'os' ),
     folderPath = "static",
     url = require('url'),
     path,
@@ -15,6 +15,9 @@ var options = {
     key: fs.readFileSync('./privatekey.pem'),
     cert: fs.readFileSync('./certificate.pem')
 };
+
+var networkInterfaces = os.networkInterfaces( );
+ip = networkInterfaces['en0'][1].address;
 
 server = http.createServer(options,function(req, res) {
     path = url.parse(req.url);

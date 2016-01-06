@@ -8,10 +8,11 @@ console.log("Info: build " + amount + " device .");
 
 portfinder.getPort(function (err, port) {
 	for (i = 0 ; i<amount ;i++) {
-		service[i] = mdns.createAdvertisement(mdns.tcp('_hitachi'), 41741, {
-		  name:'Hitachi-RAS123',
+		service[i] = mdns.createAdvertisement(mdns.tcp('_hitachi'), 8000, {
+		  name:'HITACHI_RAS-01NB',
 		  txt:{
-		    id:"A0:24:85:42:E9:43",
+		  	path:"/",
+		    id:"A0:24:85:42:E9:44",
 		    vs:"255",
 		    err:"0",
 		    st:"0"
