@@ -17,7 +17,6 @@ var options = {
     rejectUnauthorized: false
 };
 
-
 var networkInterfaces = os.networkInterfaces();
 ip = networkInterfaces['en0'][1].address;
 
@@ -63,8 +62,7 @@ var ac_status = {
     "fields": ["H00", "H01", "H02", "H03", "H04", "H06", "H0E", "H11", "H14", "H17", "H1E", "H1F", "H20", "H21", "H29"],
     "users": []
 };
-
-server = http.createServer(options, function(req, res) {
+function onRequest (req, res) {
     if (req.method == 'POST') {
         var body = '';
         req.on('data', function(data) {
@@ -102,7 +100,8 @@ server = http.createServer(options, function(req, res) {
             res.end();
         });
     }
-});
+}
 
-server.listen(port, ip);
+server = http.createServer(options,onRequest).listen(port, ip);;
+
 console.log("Server running at https://" + ip + ":" + port);

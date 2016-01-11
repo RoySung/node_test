@@ -1,0 +1,1 @@
+dns-sd -P HITACHI_RAS-28NB _hitachi._tcp local 8000 10.10.1.10 10.10.1.10 path=/ id=a0:24:85:42:e9:43 vs=262 err=0 st=0

@@ -8,7 +8,7 @@ console.log("Info: build " + amount + " device .");
 
 portfinder.getPort(function (err, port) {
 	for (i = 0 ; i<amount ;i++) {
-		service[i] = mdns.createAdvertisement(mdns.tcp('_hitachi'), 8000, {
+		service[i] = mdns.createAdvertisement(mdns.tcp('hitachi'), 8000, {
 		  name:'HITACHI_RAS-01NB',
 		  txt:{
 		  	path:"/",
@@ -23,7 +23,7 @@ portfinder.getPort(function (err, port) {
 });
 
 // read from stdin
-process.stdin.resume();
+//process.stdin.resume();
 
 // stop on Ctrl-C
 process.on('SIGINT', function () {
@@ -36,3 +36,15 @@ process.on('SIGINT', function () {
     	process.exit();
 	}, 1000);
 });
+
+
+// watch all http servers
+// var browser = mdns.createBrowser(mdns.tcp('hitachi'));
+
+// browser.on('ready', function () {
+//     browser.discover(); 
+// });
+
+// browser.on('update', function (data) {
+//     console.log('data:', data);
+// });

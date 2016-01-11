@@ -1,5 +1,5 @@
 var net = require('net'),
-    ip = "192.168.11.28",
+    ip = "10.10.1.10",
     port = 8000;
 
 var server = net.createServer(function(socket) {
